@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("saas_monthly_metrics.csv")
+
+df["month"] = pd.to_datetime(df["month"], format="%b-%y")
+
+df["churn_rate"] = df["churned_subscribers"] / df["active_subscribers"]
+df["net_adds"] = df["new_subscribers"] - df["churned_subscribers"]
+
+print(df.shape)
+display(df.head())
+display(df.describe())
+display(df.isnull().sum())

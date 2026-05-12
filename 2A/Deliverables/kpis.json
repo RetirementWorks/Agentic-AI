@@ -1,0 +1,20 @@
+{
+  "latest_month": "Jun-2025",
+  "first_month": "Jan-2023",
+  "total_mrr_latest": 14433391.82,
+  "total_mrr_prev": 13828272.559999999,
+  "total_mrr_first": 1160598.01,
+  "active_subs_latest": 75639,
+  "active_subs_first": 14561,
+  "new_subs_latest": 4301,
+  "churned_subs_latest": 2155,
+  "avg_nrr_latest": 1.0786875,
+  "avg_nps_latest": 41.6,
+  "marketing_spend_latest": 182991.08000000002,
+  "support_tickets_latest": 620,
+  "avg_arpu_latest": 170.826875,
+  "mom_mrr_growth_pct": 4.38,
+  "total_mrr_growth_pct": 1143.62,
+  "churn_rate_latest_pct": 2.77,
+  "cac_latest": 42.55
+}
