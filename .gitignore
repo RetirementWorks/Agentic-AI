@@ -1,4 +1,5 @@
 node_modules/
 screenshots/
 *.docx
-.claude/
+.claude/memory/
+.claude/settings*.json
