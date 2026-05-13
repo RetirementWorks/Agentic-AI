@@ -10,9 +10,11 @@ A custom Claude Code slash command that encodes the complete Verde Kitchen brand
 2. [What Is a Slash Command](#what-is-a-slash-command)
 3. [The Brand: Verde Kitchen](#the-brand-verde-kitchen)
 4. [The Slash Command](#the-slash-command)
-5. [How to Use the Command](#how-to-use-the-command)
-6. [Outputs Generated](#outputs-generated)
-7. [Brand Voice Consistency Analysis](#brand-voice-consistency-analysis)
+5. [Setup & Installation](#setup--installation)
+6. [How to Invoke the Command](#how-to-invoke-the-command)
+7. [What the Command Does](#what-the-command-does)
+8. [Outputs Generated](#outputs-generated)
+9. [Brand Voice Consistency Analysis](#brand-voice-consistency-analysis)
 
 ---
 
@@ -69,6 +71,105 @@ The command file contains:
 - A task instruction that injects `$ARGUMENTS` so the user controls what content type is generated
 
 The command is intentionally generic about content type — it does not hardcode "write an email." Instead the user passes the content type as the argument, making the command reusable for emails, flyers, social posts, product descriptions, and more.
+
+---
+
+## Setup & Installation
+
+### Step 1 — Install Claude Code
+
+If you do not have Claude Code installed, install it globally via npm:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Then authenticate:
+
+```bash
+claude
+```
+
+Claude Code will prompt you to log in with your Anthropic account on first launch.
+
+### Step 2 — Get the command file into the right place
+
+**Option A — Clone this repo (command is already included)**
+
+The slash command file is committed at `.claude/commands/my-brand-verde-k.md` in this repository. If you clone the repo and open Claude Code from inside it, the command is immediately available — no extra steps needed.
+
+```bash
+git clone https://github.com/RetirementWorks/Agentic-AI.git
+cd Agentic-AI
+claude
+```
+
+**Option B — Add it to your user-level commands (available across all projects)**
+
+Copy the command file to your personal Claude commands folder so it works in any project:
+
+- **Mac / Linux:** `~/.claude/commands/`
+- **Windows:** `C:\Users\<YourName>\.claude\commands\`
+
+```powershell
+# Windows PowerShell
+Copy-Item ".claude\commands\my-brand-verde-k.md" "$env:USERPROFILE\.claude\commands\"
+```
+
+```bash
+# Mac / Linux
+cp .claude/commands/my-brand-verde-k.md ~/.claude/commands/
+```
+
+After copying, the `/my-brand-verde-k` command will be available in every Claude Code session on your machine.
+
+---
+
+## How to Invoke the Command
+
+Open a Claude Code session in the terminal and type `/my-brand-verde-k` followed by a description of the content you want:
+
+```
+/my-brand-verde-k a welcome email for new subscribers
+```
+
+```
+/my-brand-verde-k a print flyer for new customer acquisition
+```
+
+```
+/my-brand-verde-k three Instagram captions for this week's menu
+```
+
+```
+/my-brand-verde-k a homepage hero headline and subhead
+```
+
+```
+/my-brand-verde-k a subject line and preview text for a flash sale
+```
+
+The part after `/my-brand-verde-k` is the **argument** — it tells the command what type of content to produce. You can request any marketing format; the brand brief stays the same.
+
+---
+
+## What the Command Does
+
+When you invoke `/my-brand-verde-k [content type]`, Claude Code:
+
+1. **Loads** the file `.claude/commands/my-brand-verde-k.md`
+2. **Substitutes** `$ARGUMENTS` in the file with whatever you typed after the command name
+3. **Runs the full prompt**, which includes:
+   - The Verde Kitchen business description and tagline
+   - The complete visual identity (colours with hex codes, fonts with hierarchy)
+   - The brand voice definition (tone, required vocabulary, banned vocabulary)
+   - Your specific content request (injected via `$ARGUMENTS`)
+4. **Generates** the requested content fully aligned to the brand — no need to re-explain the brand each time
+
+The command is intentionally format-agnostic. It does not hardcode "write an email." The user controls the output type through the argument, making the command reusable for any marketing content Verde Kitchen needs.
+
+**What changes each run:** the content type (email, flyer, caption, etc.)
+**What stays the same every run:** the brand identity, voice rules, colour palette, and vocabulary guidelines
 
 ---
 
